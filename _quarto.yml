@@ -1,0 +1,33 @@
+project:
+  type: website
+
+website:
+  title: "Soumya M"
+  favicon: /img/Sm_logo.png
+  search: false
+  navbar:
+    title: false
+    logo: /img/Sm_logo.png
+    
+    tools:
+      - icon: github
+        href: https://github.com/Newmood
+      - icon: linkedin
+        href: https://www.linkedin.com/in/soumya-mukhopadhyay-947721165/
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - useful.qmd
+
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: false
+    
+
+

@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hello, I’m Soumya!",
+    "section": "",
+    "text": "Welcome to my website! If you are looking for some awesome resources, I continuously keep updating them in - useful.\nWhile you are here, you can check my “About me”."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Soumya Mukhopadhyay",
+    "section": "",
+    "text": "I am an undergrad student with a keen interest in machine learning, data science, econometrics and quantitative finance. I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me. In leisure, I like to spend time with my wonderful family and friends. I also enjoy teaching and sharing my newfound knowledge by writing handouts."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Soumya Mukhopadhyay",
+    "section": "Education",
+    "text": "Education\nIndian Institute of Technology, Madras | Chennai, Tamil Nadu, IN\nB.S. in Data Science and Applications | January 2022- January 2026 (Expected)"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Soumya Mukhopadhyay",
+    "section": "Experience",
+    "text": "Experience\nQuantHive | Community Admin | April 2023 - present\nIndian Institute of Technology, Madras | Academic Mentor: Statistics | September 2022 - December 2022"
+  },
+  {
+    "objectID": "useful.html",
+    "href": "useful.html",
+    "title": "Useful",
+    "section": "",
+    "text": "Something useful"
+  },
+  {
+    "objectID": "index.html#this-week",
+    "href": "index.html#this-week",
+    "title": "Hello, I’m Soumya!",
+    "section": "This week",
+    "text": "This week\nThis is a section, that gets updated every Tuesday (if I remember to). You’ll find something interesting to spend your time in this section.\nThis week, let’s look at Prof. Martin Hairer’s talk on ” A Mathematical Journey through Scales” at Oxford Mathematics Public Lectures"
+  }
+]

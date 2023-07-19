@@ -1,0 +1,31 @@
+---
+title: "Soumya Mukhopadhyay"
+about: 
+    template: trestles
+    image: /img/IMG_6940.JPG
+    image-shape: round
+    links:
+        - icon: github
+          text: Github
+          href: https://github.com/Newmood
+        - icon: linkedin
+          text: LinkedIn
+          href: https://www.linkedin.com/in/soumya-mukhopadhyay-947721165/
+        - icon: envelope
+          text: Mail
+          href: mailto:22f100419@ds.study.iitm.ac.in
+---
+
+I am an undergrad student with a keen interest in machine learning, data science, econometrics and quantitative finance.  I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me. In leisure, I like to spend time with my wonderful family and friends. I also enjoy teaching and sharing my newfound knowledge by writing handouts.
+
+
+## Education
+
+**Indian Institute of Technology, Madras** | Chennai, Tamil Nadu, IN  
+B.S. in Data Science and Applications | January 2022- January 2026 (Expected)
+
+## Experience
+
+**QuantHive** | Community Admin | April 2023 - present
+
+**Indian Institute of Technology, Madras** | Academic Mentor: Statistics | September 2022 - December 2022
