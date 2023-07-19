@@ -8,6 +8,6 @@ While you are here, you can check my "[About me](about.qmd)".
 ## This week
 This is a section, that gets updated every Tuesday (if I remember to). You'll find something interesting to spend your time in this section.  
 
-This week, let's look at Prof. Martin Hairer's talk on " A Mathematical Journey through Scales" at Oxford Mathematics Public Lectures  
+This week, let's look at Prof. Martin Hairer's talk on ``A Mathematical Journey through Scales" at Oxford Mathematics Public Lectures  
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TOY52LF_ZTA" frameborder="0" allowfullscreen></iframe>
 
