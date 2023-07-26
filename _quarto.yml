@@ -14,6 +14,8 @@ website:
         href: https://github.com/Newmood
       - icon: linkedin
         href: https://www.linkedin.com/in/soumya-mukhopadhyay-947721165/
+      - icon: envelope
+        href: mailto:22f100419@ds.study.iitm.ac.in
     left:
       - href: index.qmd
         text: Home
