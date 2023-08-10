@@ -16,14 +16,11 @@ about:
           href: mailto:22f100419@ds.study.iitm.ac.in
 ---
 
-I am an undergrad student with a keen interest in machine learning, data science, econometrics and quantitative finance.  I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me. In leisure, I like to spend time with my wonderful family and friends. I also enjoy teaching and sharing my newfound knowledge by writing handouts.
+I am an undergrad student with a keen interest in the realms of machine learning, data science, econometrics and quantitative finance.  I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me. I also enjoy teaching and sharing my newfound knowledge by writing handouts.
 
+In leisure, I like to spend time with my wonderful family and friends. There's nothing quite like sharing laughter and creating memories together. 
 
 ## Education
 
 **Indian Institute of Technology, Madras** | Chennai, Tamil Nadu, IN  
 B.S. in Data Science and Applications | January 2022- January 2026 (Expected)
-
-## Experience
-
-**Indian Institute of Technology, Madras** | Academic Mentor: Statistics | September 2022 - December 2022
