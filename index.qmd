@@ -2,13 +2,13 @@
 title: "Hello, I'm Soumya!"
 ---
 
-Welcome to my website! If you are looking for some awesome resources, I continuously keep updating them in - [useful](useful.qmd).  
-While you are here, you can check my "[About me](about.qmd)".  I will add my CV soon, but don't ask me when, right now its an empty page.  
+Welcome to my website! Currently working on a data visualization project and fiddling around with Julia. While you are here, you can check my "[About me](about.qmd)".  
+If you are looking for some awesome resources, I continuously keep updating them in - [useful](useful.qmd).  
+I will add my CV soon, but don't ask me when, right now its an empty page.  
 
 
-## This week
-This is a section, that gets updated every Tuesday (if I remember to). You'll find something interesting to spend your time in this section.  
+### Haven't heard of the G! Festival, have you?
+Check this out:
 
-This week, let's look at Prof. Martin Hairer's talk on ``A Mathematical Journey through Scales" at Oxford Mathematics Public Lectures  
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TOY52LF_ZTA" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JkDoV_dmViM" frameborder="0" allowfullscreen></iframe>
 
