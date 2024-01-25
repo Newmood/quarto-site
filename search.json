@@ -4,20 +4,34 @@
     "href": "useful.html",
     "title": "Useful",
     "section": "",
-    "text": "Something useful will be added soon, I apologize for not doing it already."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Soumya Mukhopadhyay",
-    "section": "",
-    "text": "I am an undergrad studying Data Science at IIT Madras with a keen interest in the realms of machine learning, data science, econometrics and quantitative finance. I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me.\nI am also fond of physics, deep conversation might lead to question my majors. Other things I like to talk about range to history and philosophy however I haven’t explored as many texts as I aspired to. I desire to travel to many parts of the world, soaking myself in different cultures and create unforgettable memories. Listening to music and chess are sort of a hobby that I like a lot, not much of a professional, I just play chess for fun. In leisure, I like to spend time with my wonderful family and friends. There’s nothing quite like sharing laughter and creating memories together. Sharing stories with friends while exploring new eateries or going to that “great spot” that your friend knows is indeed cherishable"
+    "text": "Useful stuff, such as resources on the internet will be added here soon."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Hello, I’m Soumya!",
+    "title": "Soumya Mukhopadhyay",
     "section": "",
-    "text": "Welcome to my website! Currently working on a data visualization project and fiddling around with Julia. While you are here, you can check my “About me”.\nIf you are looking for some awesome resources, I continuously keep updating them in - useful.\nI will add my CV soon, but don’t ask me when, right now its an empty page.\n\nHaven’t heard of the G! Festival, have you?\nCheck this out: (Although obvious, I would like to mention that I’m not the creator of the content embedded below)"
+    "text": "I am an undergrad with a keen interest in the realms of machine learning and data science. I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Soumya Mukhopadhyay",
+    "section": "Education",
+    "text": "Education\nB.S. Data Science and Applications | 2022- 2026 (expected)\nIndian Institute of Technology, Madras"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Projects will be added here soon."
   }
 ]

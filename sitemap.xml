@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Newmood.github.io/quarto_site/useful.html</loc>
-    <lastmod>2024-01-25T12:45:25.407Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Newmood.github.io/quarto_site/about.html</loc>
-    <lastmod>2024-01-25T12:45:22.903Z</lastmod>
+    <lastmod>2024-01-25T13:41:04.678Z</lastmod>
   </url>
   <url>
     <loc>https://Newmood.github.io/quarto_site/index.html</loc>
-    <lastmod>2024-01-25T12:45:24.064Z</lastmod>
+    <lastmod>2024-01-25T13:41:03.229Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Newmood.github.io/quarto_site/blog.html</loc>
+    <lastmod>2024-01-25T13:41:02.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Newmood.github.io/quarto_site/projects.html</loc>
+    <lastmod>2024-01-25T13:41:03.960Z</lastmod>
   </url>
 </urlset>
