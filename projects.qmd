@@ -1,5 +1,9 @@
 ---
-title: Projects
+title: PROJECTS
+page-layout: full
+listing: 
+    contents: projects/*/info.qmd
+    type: grid
 ---
 
 Projects will be added here soon.

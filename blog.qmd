@@ -1,8 +1,10 @@
 ---
-title: "Blog"
+title: Welcome to my blogs!
+page-layout: full
 listing:
-  contents: posts
+  contents: posts/*/index.qmd
   sort: "date desc"
   type: default
   categories: true
 ---
+

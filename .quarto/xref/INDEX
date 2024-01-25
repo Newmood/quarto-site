@@ -13,5 +13,11 @@
   },
   "projects.qmd": {
     "projects.html": "5f29d234"
+  },
+  "posts/2401_ohlcv_viz_py/index.qmd": {
+    "index.html": "53e24be8"
+  },
+  "projects/test/info.qmd": {
+    "info.html": "4df6ba4d"
   }
 }

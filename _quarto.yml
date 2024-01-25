@@ -10,12 +10,12 @@ website:
 
     left:
       - href: index.qmd
-        text: Home
-      - text: Projects
+        text: HOME
+      - text: PROJECTS
         href: projects.qmd
-      - text: Blog
+      - text: BLOG
         href: blog.qmd
-      - text: Useful
+      - text: USEFUL
         href: useful.qmd
 
 format:
