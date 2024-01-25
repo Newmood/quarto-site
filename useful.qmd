@@ -1,5 +1,6 @@
 ---
 title: "Useful"
+page-layout: full
 ---
 
-Something useful will be added soon, I apologize for not doing it already.
+Useful stuff, such as resources on the internet will be added here soon.

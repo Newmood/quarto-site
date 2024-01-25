@@ -6,22 +6,17 @@ website:
   favicon: /img/Sm_logo.png
   search: false
   navbar:
-    title: false
     logo: /img/Sm_logo.png
-    
-    tools:
-      - icon: github
-        href: https://github.com/Newmood
-      - icon: linkedin
-        href: https://www.linkedin.com/in/soumya-mukhopadhyay-947721165/
-      - icon: envelope
-        href: mailto:22f100419@ds.study.iitm.ac.in
+
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: About
-      - useful.qmd
+      - text: Projects
+        href: projects.qmd
+      - text: Blog
+        href: blog.qmd
+      - text: Useful
+        href: useful.qmd
 
 format:
   html:

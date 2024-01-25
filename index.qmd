@@ -1,14 +1,29 @@
 ---
-title: "Hello, I'm Soumya!"
+title: "Soumya Mukhopadhyay"
+page-layout: full
+about: 
+    template: trestles
+    image: /img/IMG_6940.JPG
+    image-shape: round
+
+    links:
+        - icon: github
+          text: Github
+          href: https://github.com/Newmood
+        - icon: linkedin
+          text: LinkedIn
+          href: https://www.linkedin.com/in/soumya-mukhopadhyay-947721165/
+        - icon: envelope
+          text: Mail
+          href: mailto:22f100419@ds.study.iitm.ac.in
+        - icon: mastodon
+          text: Mastodon
+          href: https://mastodon.social/@Newmood_Clown
 ---
 
-Welcome to my website! Currently working on a data visualization project and fiddling around with Julia. While you are here, you can check my "[About me](about.qmd)".  
-If you are looking for some awesome resources, I continuously keep updating them in - [useful](useful.qmd).  
-I will add my CV soon, but don't ask me when, right now its an empty page.  
 
+I am an undergrad with a keen interest in the realms of machine learning and data science.  I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me.
 
-### Haven't heard of the G! Festival, have you?
-Check this out: (Although obvious, I would like to mention that I'm **not** the creator of the content embedded below)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JkDoV_dmViM" frameborder="0" allowfullscreen></iframe>
-
+## Education
+B.S. Data Science and Applications | 2022- 2026 (expected)  
+Indian Institute of Technology, Madras
