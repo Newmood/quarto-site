@@ -19,5 +19,13 @@
   },
   "projects/test/info.qmd": {
     "info.html": "4df6ba4d"
+  },
+  "posts/2401_ohlcv_viz_py/ohlcv_plot_py.ipynb": {
+    "ohlcv_plot_py.html": "36a20cae",
+    "ohlcv_plot_py.ipynb.html": "641dacd4"
+  },
+  "posts/2401_ohlcv_viz_py/candle_plots.ipynb": {
+    "candle_plots.html": "a25a5708",
+    "candle_plots.ipynb.html": "9fb68ee3"
   }
 }
