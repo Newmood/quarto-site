@@ -1,11 +1,242 @@
 ---
-title: OHLCV data plotting using Python libraries
-description: This post consists of plotting OHLCV data obtained from yfinance library using multiple python data visualization libraries.
+title: Candlestick Plotting with Python Libraries
+description: Create interactive Candlestick charts of OHLCV data obtained from yfinance library using python libraries.
 categories:
   - Visualization
   - Finance
 date: "2024-01-26"
 page-layout: full
+execute: 
+  echo: true
+jupyter: python3
 ---
 
-hey
+## Introduction
+In this post, we will be looking at creating candlestick charts, which are integral to traders' daily routines, using Python libraries such as Mplfinance, Plotly and Bokeh, and look at customizing the plots, change themes and tweak some colors.  
+As this blog post is written on [Quarto](https://quarto.org/), it enables viewers to interact with the output plots. You'll be able to pan and zoom with the charts created with plotly and bokeh!  
+So, now lets head on to fetch our data first.
+
+
+## Getting Data
+We will make use of the [yfinance](https://github.com/ranaroussi/yfinance) library. Let's fetch the Open-High-Low-Close and Volume data for [Apple (AAPL)](https://finance.yahoo.com/quote/AAPL/) for the past 5 months.
+
+Our data looks like this:
+
+```{python}
+#| label: data
+#| code-fold: true
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
+import yfinance as yf
+import pandas as pd
+
+
+data = yf.download("AAPL", period="5mo",auto_adjust=True)
+data.head()
+```
+
+## Plots
+Now we will head straight into plotting. We will start with [mplfinance](https://github.com/matplotlib/mplfinance), a special module for finance charts of matplotlib.
+
+### mplfinance
+Creating candlestick charts with mplfinance is a simple one line code:
+```{python}
+#|label: mplfinance-1
+#|fig-alt: "Output plot using mplfinance"
+#| code-fold: true
+#| fig-width: 70%
+
+import mplfinance as mpf
+
+mpf.plot(data, type="candle", volume=True, style="yahoo",
+         figsize=(6,3),title="AAPL Candlestick with Mplfinance",
+        ylabel="Price [USD]")
+```
+
+This plot uses the "yahoo" style. We can check the available style using the command ``mpf.available_styles()``. Now let us look at a few other available styles below:
+
+```{python}
+#|label: mplfinance-2
+#|fig-alt: "Output plot demonstrating some themes"
+#| code-fold: true
+
+mc_list = ["binance","blueskies","starsandstripes","brasil"]
+
+fig = mpf.figure(figsize=(6,6))
+ax_dict = {}
+
+for i,st in enumerate(mc_list):
+    ax_dict[i]=fig.add_subplot(2,2,i+1, style=st)
+    mpf.plot(data[:50], type ="candle", ax=ax_dict[i], axtitle=(st),xrotation=0)
+```
+
+And now we will tweak and play with the candle colors and background. First we will set the base mplstyle to ``dark_background`` (for reference, [check here](https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html)). Then we will set ``marketcolors`` for the chart: 
+```{python}
+#|label: mplfinance-3
+#|fig-alt: "Customised dark theme caldestick chart using mpfinance"
+#| code-fold: true
+
+mc = mpf.make_marketcolors(up="g",down="r",inherit=True)
+s = mpf.make_mpf_style(base_mpl_style="dark_background",marketcolors=mc)
+mpf.plot(data, type="candle", volume=True, style=s,
+         figsize=(6,3),title="Customised Dark theme plot on mplfinance",
+        ylabel="Price [USD]")
+```
+
+For looking further stye changes using mplfinance, one might check their [example notebook](https://github.com/matplotlib/mplfinance/blob/master/examples/styles.ipynb)
+
+We will move ahead and try hands on some interactive plotting libraries.
+
+### Plotly
+[Plotly](https://plotly.com/python/) is perhaps the most used interactive visualization library in python. It offers a great deal of customization. With Plotly, we will make two types of charts, OHLC and Volume plotted together in first one, separate in the next.
+
+```{python}
+#|label: plotly-1
+#|fig-alt: Output plot using plotly
+#| code-fold: true
+
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+fig.add_trace(go.Candlestick(x=data.index, open=data["Open"],
+                              high=data["High"], low=data["Low"],
+                             close=data["Close"], name = "OHLC"), secondary_y=False)
+
+fig.add_trace(go.Bar(x=data.index, y=data['Volume'], opacity=0.3,
+                     name= "Volume"), secondary_y=True)
+
+fig.update_layout(title="AAPL Candlestick with Plotly", width=900, height=400)
+fig.update_yaxes(title="Price [USD]", secondary_y=False, showgrid=True)
+fig.update_yaxes(title="Volume", secondary_y=True, showgrid=False)
+
+fig.show()
+```
+
+In the next one, we hide the range slider for better viewing and separate the volume bar chart:
+
+```{python}
+#|label: plotly-2
+#|fig-alt: Output plot using plotly
+#| code-fold: true
+
+fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.05, row_width=[0.2, 0.7])
+
+fig.add_trace(go.Candlestick(x=data.index, open=data["Open"],
+                              high=data["High"], low=data["Low"],
+                             close=data["Close"], name = "OHLC"), row=1, col=1)
+
+fig.add_trace(go.Bar(x=data.index, y=data['Volume'], opacity=0.3,
+                     name= "Volume"), row=2, col=1)
+
+fig.update_layout(title="AAPL Candlestick with Plotly", width=900, height=500)
+
+fig.update(layout_xaxis_rangeslider_visible=False)
+fig.show()
+```
+
+Plotly as well offers [multiple themes](https://plotly.com/python/templates/) and customizations, for now will use the dark theme and just change the colors of volume bars for the first plot.
+
+```{python}
+#|label: plotly-3
+#|fig-alt: Output plot using plotly with dark theme
+#| code-fold: true
+
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+fig.add_trace(go.Candlestick(x=data.index, open=data["Open"],
+                              high=data["High"], low=data["Low"],
+                             close=data["Close"], name = "OHLC"), secondary_y=False)
+
+fig.add_trace(go.Bar(x=data.index, y=data['Volume'], opacity=0.3,
+                     name= "Volume", marker_color="gray"), secondary_y=True)
+
+fig.update_layout(title="AAPL Candlestick with Plotly", width=900, height=500, xaxis={"rangeslider":{"visible":False}}, template="plotly_dark")
+fig.update_yaxes(title="Price [USD]", secondary_y=False, showgrid=True)
+fig.update_yaxes(title="Volume", secondary_y=True, showgrid=False)
+
+fig.show()
+```
+
+### Bokeh plot
+
+Quoting:  
+
+> Bokeh is an interactive visualization library for modern web browsers. It provides elegant, concise construction of versatile graphics, and affords high-performance interactivity over large or streaming datasets. Bokeh can help anyone who would like to quickly and easily make interactive plots, dashboards, and data applications.
+
+[Bokeh](https://bokeh.org/) additionally has great documentation and user guide. Now let's look at a candlestick chart created using Bokeh:
+
+
+```{python}
+#|label: bokeh-1
+#|fig-alt: "Output plot using Bokeh"
+#| code-fold: true
+
+
+from bokeh.layouts import column
+from bokeh.plotting import figure, show, output_notebook
+from bokeh.models import ColumnDataSource, RangeTool, BoxAnnotation, HoverTool
+from bokeh.resources import INLINE
+
+
+output_notebook(resources=INLINE)
+
+inc= data.Close > data.Open
+dec = data.Open > data.Close
+TOOLS = "pan,wheel_zoom,box_zoom,reset,save"
+width_set = pd.Timedelta("16H")
+
+
+fig = figure(x_axis_type="datetime", tools=TOOLS, width=900, height=350,
+             title="AAPL Candlestick with Bokeh")
+
+fig.segment(data.index, data.High, data.index, data.Low, color="black")
+fig.vbar(data.index[dec], width_set, data.Open[dec], data.Close[dec], color="red")
+fig.vbar(data.index[inc], width_set, data.Open[inc], data.Close[inc], color="green")
+fig.yaxis.axis_label="Price [USD]"
+
+vol = figure(x_axis_type="datetime", tools=TOOLS, width=900, height=150, x_range=fig.x_range)
+vol.vbar(data.index, width=width_set, top=data.Volume, fill_color="grey", alpha=0.5)
+vol.yaxis.axis_label="Volume"
+
+show(column(fig,vol))
+```
+
+Great! We will now change to dark theme. Check out : [bokeh themes](https://docs.bokeh.org/en/latest/docs/user_guide/styling/themes.html).
+
+```{python}
+#|label: bokeh-2
+#|fig-alt: Output plot using Bokeh with dark theme
+#| code-fold: true
+
+from bokeh.plotting import curdoc
+from bokeh.themes import Theme
+output_notebook(resources=INLINE)
+
+inc= data.Close > data.Open
+dec = data.Open > data.Close
+TOOLS = "pan,wheel_zoom,box_zoom,reset,save"
+width_set = pd.Timedelta("16H")
+
+
+fig = figure(x_axis_type="datetime", tools=TOOLS, width=900, height=400,
+             title="AAPL Candlestick with Bokeh")
+
+fig.segment(data.index, data.High, data.index, data.Low, color="white")
+fig.vbar(data.index[dec], width_set, data.Open[dec], data.Close[dec], color="red")
+fig.vbar(data.index[inc], width_set, data.Open[inc], data.Close[inc], color="green")
+fig.yaxis.axis_label="Price [USD]"
+
+doc = curdoc()
+doc.theme = "dark_minimal"
+doc.add_root(fig)
+show(fig)
+```
+
+That really looks good. If you are going through the code here, you can see how simple it would be to change the colors of bars. One can further add [tooltips](https://docs.bokeh.org/en/latest/docs/user_guide/interaction/tooltips.html) that will display the OHLC data on hovering over the candles.
+
+One might further look at libraries like [Altair](https://altair-viz.github.io/), [ggplot](https://yhat.github.io/ggpy/). One great library that I just found while writing this post is [Holoviews](https://yhat.github.io/ggpy/)
+
+Have fun plotting!
