@@ -1,6 +1,14 @@
 [
   {
     "listing": "/blog.html",
-    "items": []
+    "items": [
+      "/posts/2401_ohlcv_viz_py/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/test/info.html"
+    ]
   }
 ]

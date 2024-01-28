@@ -2,18 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Newmood.github.io/quarto_site/useful.html</loc>
-    <lastmod>2024-01-25T13:41:04.678Z</lastmod>
+    <lastmod>2024-01-28T13:27:37.662Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Newmood.github.io/quarto_site/projects/test/info.html</loc>
+    <lastmod>2024-01-28T13:27:34.755Z</lastmod>
   </url>
   <url>
     <loc>https://Newmood.github.io/quarto_site/index.html</loc>
-    <lastmod>2024-01-25T13:41:03.229Z</lastmod>
+    <lastmod>2024-01-28T13:27:10.921Z</lastmod>
   </url>
   <url>
     <loc>https://Newmood.github.io/quarto_site/blog.html</loc>
-    <lastmod>2024-01-25T13:41:02.314Z</lastmod>
+    <lastmod>2024-01-28T13:27:09.663Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Newmood.github.io/quarto_site/posts/2401_ohlcv_viz_py/index.html</loc>
+    <lastmod>2024-01-28T13:27:33.382Z</lastmod>
   </url>
   <url>
     <loc>https://Newmood.github.io/quarto_site/projects.html</loc>
-    <lastmod>2024-01-25T13:41:03.960Z</lastmod>
+    <lastmod>2024-01-28T13:27:36.374Z</lastmod>
   </url>
 </urlset>
