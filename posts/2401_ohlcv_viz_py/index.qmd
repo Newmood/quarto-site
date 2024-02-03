@@ -1,5 +1,6 @@
 ---
 title: Candlestick Plotting with Python Libraries
+title-block-banner: true
 description: Create interactive Candlestick charts of OHLCV data obtained from yfinance library using python libraries.
 categories:
   - Visualization
