@@ -10,6 +10,8 @@ about:
         - icon: github
           text: Github
           href: https://github.com/Newmood
+        - text: Kaggle
+          href: https://www.kaggle.com/soumyam23
         - icon: linkedin
           text: LinkedIn
           href: https://www.linkedin.com/in/soumya-mukhopadhyay-947721165/
