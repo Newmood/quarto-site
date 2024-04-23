@@ -3,7 +3,7 @@ title: "Soumya Mukhopadhyay"
 page-layout: full
 about: 
     template: trestles
-    image: /img/IMG_6940.JPG
+    image: /img/prfp.jpg
     image-shape: round 
 
     links:
