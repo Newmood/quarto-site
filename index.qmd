@@ -18,9 +18,6 @@ about:
         - icon: envelope
           text: Mail
           href: mailto:22f100419@ds.study.iitm.ac.in
-        - icon: mastodon
-          text: Mastodon
-          href: https://mastodon.social/@Newmood_Clown
 ---
 
 
