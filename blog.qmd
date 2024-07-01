@@ -1,9 +1,14 @@
 ---
+title: "My blog"
 page-layout: full
 listing:
   contents: posts/*/index.qmd
+  date-format: long
   sort: "date desc"
   type: default
+  fields: [date, title, description, image]
+  sort-ui: true
+  filter-ui: true
   categories: true
 ---
 

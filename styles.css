@@ -1,1 +1,6 @@
 /* css styles */
+
+/* Make title invisible -- issues with blog title*/
+/* .quarto-title > h1.title {
+  opacity: 0 !important;
+} */

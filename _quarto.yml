@@ -4,21 +4,38 @@ project:
 execute: 
   freeze: auto
 website:
-  title: "Soumya M"
+  title: "Soumya M."
   favicon: /img/Sm_logo.png
-  search: false
+  search: true
   navbar:
-    logo: /img/Sm_logo.png
+    # logo: /img/Sm_logo.png
 
     left:
       - href: index.qmd
-        text: HOME
-      - text: PROJECTS
+        text: Home
+      - text: Projects
         href: projects.qmd
-      - text: BLOG
+      - text: Blog
         href: blog.qmd
-      - text: USEFUL
+      - text: Useful
         href: useful.qmd
+      - text: CV
+        href: index.qmd
+      - text: Gallery
+        href: gallery.qmd
+    
+    right: 
+      - icon: linkedin
+        href: https://www.linkedin.com/in/soumya-mukhopadhyay-947721165/
+      - icon: github
+        href: https://github.com/Newmood
+      - text: K
+        href: https://www.kaggle.com/soumyam23
+  
+  page-footer: 
+    border: true
+    left: "&#169; 2024 Soumya Mukhopadhyay"
+    right: "made with [Quarto](https://quarto.org/)"
 
 format:
   html:
@@ -27,6 +44,7 @@ format:
       dark: darkly
     css: styles.css
     toc: false
+    pagetitle: "Soumya M | {{< meta title >}}"
     
 
 

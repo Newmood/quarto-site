@@ -1,4 +1,5 @@
 ---
+title: Projects
 page-layout: full
 listing: 
     contents: projects/*/info.qmd

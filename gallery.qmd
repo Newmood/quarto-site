@@ -1,0 +1,20 @@
+---
+title: "Gallery"
+format: html
+page-layout: full
+filters:
+   - lightbox
+lightbox: 
+    match: auto
+    loop: false
+    desc-position: bottom
+---
+[This page contains random clicks (_I mean it_) with my smartphone that has 5+ years of experience dealing with me.]{.small} 
+
+:::{style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));grid-gap: 1em;"}
+![The sky from a beach at evening.](./img/pic_01.png){group="gallery"}
+
+![Corridor of an old temple build around 1600 CE.](./img/pic_02.png){group="gallery"}
+
+![Some random tower type structure](./img/prfp.jpg){group="gallery"}
+:::

@@ -1,0 +1,9 @@
+---
+title: "Encoding: ASCII, UCS, UTF "
+title-block-banner: true
+description: This blogs talks about various encoding methods developed and how the web pages use them.
+categories:
+  - Computer Science
+date: "2024-06-30"
+page-layout: full
+---
