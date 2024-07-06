@@ -12,9 +12,11 @@ execute:
 jupyter: python3
 ---
 
+This post was written primarily because I wanted to learn how [quarto's computations](https://quarto.org/docs/computations/python.html) work along with interactivity of Bokeh and Plotly in python, also found out that as of now we cannot contorl the size of output images produced with matplotlib (hence them appearing large in this post).
+
 ## Introduction
 In this post, we will be looking at creating candlestick charts, which are integral to traders' daily routines, using Python libraries such as Mplfinance, Plotly and Bokeh, and look at customizing the plots, change themes and tweak some colors.  
-As this blog post is written on [Quarto](https://quarto.org/), it enables viewers to interact with the output plots. You'll be able to pan and zoom with the charts created with plotly and bokeh!  
+As this post is written on [Quarto](https://quarto.org/), it enables viewers to interact with the output plots. You'll be able to pan and zoom with the charts created with plotly and bokeh!  
 So, now lets head on to fetch our data first.
 
 

@@ -7,3 +7,8 @@ categories:
 date: "2024-06-30"
 page-layout: full
 ---
+
+## Introduction
+Machines only understand bits, 1s and 0s. Hence, any languages humans use need to be translated into bits somehow for computers to store and manipulate it as needed. Encodings are developed to specify a standard of such translation, that will allow users to read and write data consistently regardless of difference in software or hardware and is hence an fundamental concept in computing. Every character across different languages and scripts are assigned a _code points_ which is then in turn converted into bits. In this post we look at a few major encodings, like the ASCII, UCS and UTF.
+
+## ASCII
