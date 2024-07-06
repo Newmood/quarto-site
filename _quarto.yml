@@ -40,11 +40,8 @@ website:
 format:
   html:
     theme: 
-      light: flatly
+      light: [flatly, light.scss]
       dark: darkly
-    css: styles.css
+    # css: styles.css
     toc: false
     pagetitle: "Soumya M | {{< meta title >}}"
-    
-
-
