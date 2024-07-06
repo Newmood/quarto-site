@@ -1,0 +1,9 @@
+---
+title: "Encoding: ASCII, UCS, UTF "
+title-block-banner: true
+description: Create interactive Candlestick charts of OHLCV data obtained from yfinance library using python libraries.
+categories:
+  - Computer Science
+date: "2024-06-30"
+page-layout: full
+---

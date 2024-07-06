@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/2406_encoding/index.html",
       "/posts/2401_ohlcv_viz_py/index.html"
     ]
   },

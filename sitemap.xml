@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Newmood.github.io/useful.html</loc>
-    <lastmod>2024-02-18T12:52:43.273Z</lastmod>
+    <lastmod>2024-07-06T10:33:30.136Z</lastmod>
   </url>
   <url>
     <loc>https://Newmood.github.io/projects/test/info.html</loc>
     <lastmod>2024-02-18T12:52:43.273Z</lastmod>
   </url>
   <url>
-    <loc>https://Newmood.github.io/index.html</loc>
-    <lastmod>2024-04-23T07:55:07.213Z</lastmod>
+    <loc>https://Newmood.github.io/posts/2401_ohlcv_viz_py/index.html</loc>
+    <lastmod>2024-07-06T08:23:23.978Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Newmood.github.io/gallery.html</loc>
+    <lastmod>2024-07-01T10:28:39.689Z</lastmod>
   </url>
   <url>
     <loc>https://Newmood.github.io/blog.html</loc>
-    <lastmod>2024-02-18T12:52:43.242Z</lastmod>
+    <lastmod>2024-07-01T10:32:26.636Z</lastmod>
   </url>
   <url>
-    <loc>https://Newmood.github.io/posts/2401_ohlcv_viz_py/index.html</loc>
-    <lastmod>2024-02-18T12:52:43.273Z</lastmod>
+    <loc>https://Newmood.github.io/index.html</loc>
+    <lastmod>2024-07-01T08:02:05.215Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Newmood.github.io/posts/2406_encoding/index.html</loc>
+    <lastmod>2024-07-06T11:10:32.235Z</lastmod>
   </url>
   <url>
     <loc>https://Newmood.github.io/projects.html</loc>
-    <lastmod>2024-03-14T11:03:54.662Z</lastmod>
+    <lastmod>2024-07-01T08:00:06.579Z</lastmod>
   </url>
 </urlset>

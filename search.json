@@ -4,49 +4,42 @@
     "href": "useful.html",
     "title": "Useful",
     "section": "",
-    "text": "Useful stuff, such as resources on the internet will be added here soon."
+    "text": "Here are some books that have helped me and I refer to often (links attached) some of these might be very useful to you as well:\n\n\nProbability and Statistics with Examples using R by Athreya, Tanner, Sarkar\nIntroduction to Statistical Learning in R/Python by Hastie, Tibshirani, James, Witten, Taylor\nThe Elements of Statistical Learning by Hastie, Tibshirani\nMining of Massive Datasets by Leskovec, Ullman, Rajaraman\nINtrodution to Information Retrieval by Manning, Raghavan, Schütze\nAdvanced Data Analysis by Cosma Rohilla Shalizi\nBooks by Charu Aggarwal, namely:\n\nData Mining\nNeural Networks and Deep Learning\nRecommender Systems\n\nDatabase System Concepts by Silberschatz, Korth, Sudarshan\n\n\n\n\n\n\n\n\nNote\n\n\n\nI have not read them cover to cover, just some topics or when in need while doing courses in my university or some self-learning. List also includes books that I’ve marked to-do."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Soumya Mukhopadhyay",
+    "objectID": "useful.html#books",
+    "href": "useful.html#books",
+    "title": "Useful",
     "section": "",
-    "text": "I am an undergrad with a keen interest in the realms of machine learning and data science. I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me."
+    "text": "Here are some books that have helped me and I refer to often (links attached) some of these might be very useful to you as well:\n\n\nProbability and Statistics with Examples using R by Athreya, Tanner, Sarkar\nIntroduction to Statistical Learning in R/Python by Hastie, Tibshirani, James, Witten, Taylor\nThe Elements of Statistical Learning by Hastie, Tibshirani\nMining of Massive Datasets by Leskovec, Ullman, Rajaraman\nINtrodution to Information Retrieval by Manning, Raghavan, Schütze\nAdvanced Data Analysis by Cosma Rohilla Shalizi\nBooks by Charu Aggarwal, namely:\n\nData Mining\nNeural Networks and Deep Learning\nRecommender Systems\n\nDatabase System Concepts by Silberschatz, Korth, Sudarshan\n\n\n\n\n\n\n\n\nNote\n\n\n\nI have not read them cover to cover, just some topics or when in need while doing courses in my university or some self-learning. List also includes books that I’ve marked to-do."
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Soumya Mukhopadhyay",
-    "section": "Education",
-    "text": "Education\nB.S. Data Science and Applications | 2022- 2026 (expected)\nIndian Institute of Technology, Madras"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Soumya M",
-    "section": "",
-    "text": "Candlestick Plotting with Python Libraries\n\n\n\n\n\n\nVisualization\n\n\nFinance\n\n\n\nCreate interactive Candlestick charts of OHLCV data obtained from yfinance library using python libraries.\n\n\n\n\n\nJan 26, 2024\n\n\n\n\n\n\nNo matching items"
+    "objectID": "useful.html#my-notes",
+    "href": "useful.html#my-notes",
+    "title": "Useful",
+    "section": "My notes",
+    "text": "My notes\nI will add my notes here soon."
   },
   {
     "objectID": "posts/2401_ohlcv_viz_py/index.html",
     "href": "posts/2401_ohlcv_viz_py/index.html",
     "title": "Candlestick Plotting with Python Libraries",
     "section": "",
-    "text": "In this post, we will be looking at creating candlestick charts, which are integral to traders’ daily routines, using Python libraries such as Mplfinance, Plotly and Bokeh, and look at customizing the plots, change themes and tweak some colors.\nAs this blog post is written on Quarto, it enables viewers to interact with the output plots. You’ll be able to pan and zoom with the charts created with plotly and bokeh!\nSo, now lets head on to fetch our data first."
+    "text": "This post was written primarily because I wanted to learn how quarto’s computations work along with interactivity of Bokeh and Plotly in python, also found out that as of now we cannot contorl the size of output images produced with matplotlib (hence them appearing large in this post)."
   },
   {
     "objectID": "posts/2401_ohlcv_viz_py/index.html#introduction",
     "href": "posts/2401_ohlcv_viz_py/index.html#introduction",
     "title": "Candlestick Plotting with Python Libraries",
-    "section": "",
-    "text": "In this post, we will be looking at creating candlestick charts, which are integral to traders’ daily routines, using Python libraries such as Mplfinance, Plotly and Bokeh, and look at customizing the plots, change themes and tweak some colors.\nAs this blog post is written on Quarto, it enables viewers to interact with the output plots. You’ll be able to pan and zoom with the charts created with plotly and bokeh!\nSo, now lets head on to fetch our data first."
+    "section": "Introduction",
+    "text": "Introduction\nIn this post, we will be looking at creating candlestick charts, which are integral to traders’ daily routines, using Python libraries such as Mplfinance, Plotly and Bokeh, and look at customizing the plots, change themes and tweak some colors.\nAs this post is written on Quarto, it enables viewers to interact with the output plots. You’ll be able to pan and zoom with the charts created with plotly and bokeh!\nSo, now lets head on to fetch our data first."
   },
   {
     "objectID": "posts/2401_ohlcv_viz_py/index.html#getting-data",
     "href": "posts/2401_ohlcv_viz_py/index.html#getting-data",
     "title": "Candlestick Plotting with Python Libraries",
     "section": "Getting Data",
-    "text": "Getting Data\nWe will make use of the yfinance library. Let’s fetch the Open-High-Low-Close and Volume data for Apple (AAPL) for the past 5 months.\nOur data looks like this:\n\n\nCode\nimport warnings\nwarnings.simplefilter(action='ignore', category=FutureWarning)\n\nimport yfinance as yf\nimport pandas as pd\n\n\ndata = yf.download(\"AAPL\", period=\"5mo\",auto_adjust=True)\ndata.head()\n\n\n[*********************100%%**********************]  1 of 1 completed\n\n\n\n\n\n\n\n\n\n\nOpen\nHigh\nLow\nClose\nVolume\n\n\nDate\n\n\n\n\n\n\n\n\n\n2023-11-24\n190.626752\n190.656713\n189.008822\n189.727905\n24048300\n\n\n2023-11-27\n189.677965\n190.427010\n188.659261\n189.548126\n40552600\n\n\n2023-11-28\n189.538144\n190.836490\n189.158623\n190.157349\n38415400\n\n\n2023-11-29\n190.656711\n191.845197\n188.729178\n189.128662\n43014200\n\n\n2023-11-30\n189.598056\n190.077455\n187.950165\n189.707916\n48794400"
+    "text": "Getting Data\nWe will make use of the yfinance library. Let’s fetch the Open-High-Low-Close and Volume data for Apple (AAPL) for the past 5 months.\nOur data looks like this:\n\n\nCode\nimport warnings\nwarnings.simplefilter(action='ignore', category=FutureWarning)\n\nimport yfinance as yf\nimport pandas as pd\n\n\ndata = yf.download(\"AAPL\", period=\"5mo\",auto_adjust=True)\ndata.head()\n\n\n[*********************100%%**********************]  1 of 1 completed\n\n\n\n\n\n\n\n\n\n\nOpen\nHigh\nLow\nClose\nVolume\n\n\nDate\n\n\n\n\n\n\n\n\n\n2024-02-06\n186.369081\n188.812642\n186.279321\n188.802673\n43490800\n\n\n2024-02-07\n190.139164\n190.548090\n188.114498\n188.912399\n53439000\n\n\n2024-02-08\n188.892437\n189.042037\n186.857803\n187.825256\n40962000\n\n\n2024-02-09\n188.394466\n189.732663\n187.745353\n188.594208\n45155200\n\n\n2024-02-12\n188.164784\n188.414445\n186.536987\n186.896500\n41781900"
   },
   {
     "objectID": "posts/2401_ohlcv_viz_py/index.html#plots",
@@ -56,9 +49,58 @@
     "text": "Plots\nNow we will head straight into plotting. We will start with mplfinance, a special module for finance charts of matplotlib.\n\nmplfinance\nCreating candlestick charts with mplfinance is a simple one line code:\n\n\nCode\nimport mplfinance as mpf\n\nmpf.plot(data, type=\"candle\", volume=True, style=\"yahoo\",\n         figsize=(6,3),title=\"AAPL Candlestick with Mplfinance\",\n        ylabel=\"Price [USD]\")\n\n\n\n\n\n\n\n\n\nThis plot uses the “yahoo” style. We can check the available style using the command mpf.available_styles(). Now let us look at a few other available styles below:\n\n\nCode\nmc_list = [\"binance\",\"blueskies\",\"starsandstripes\",\"brasil\"]\n\nfig = mpf.figure(figsize=(6,6))\nax_dict = {}\n\nfor i,st in enumerate(mc_list):\n    ax_dict[i]=fig.add_subplot(2,2,i+1, style=st)\n    mpf.plot(data[:50], type =\"candle\", ax=ax_dict[i], axtitle=(st),xrotation=0)\n\n\n\n\n\n\n\n\n\nAnd now we will tweak and play with the candle colors and background. First we will set the base mplstyle to dark_background (for reference, check here). Then we will set marketcolors for the chart:\n\n\nCode\nmc = mpf.make_marketcolors(up=\"g\",down=\"r\",inherit=True)\ns = mpf.make_mpf_style(base_mpl_style=\"dark_background\",marketcolors=mc)\nmpf.plot(data, type=\"candle\", volume=True, style=s,\n         figsize=(6,3),title=\"Customised Dark theme plot on mplfinance\",\n        ylabel=\"Price [USD]\")\n\n\n\n\n\n\n\n\n\nFor looking further stye changes using mplfinance, one might check their example notebook\nWe will move ahead and try hands on some interactive plotting libraries.\n\n\nPlotly\nPlotly is perhaps the most used interactive visualization library in python. It offers a great deal of customization. With Plotly, we will make two types of charts, OHLC and Volume plotted together in first one, separate in the next.\n\n\nCode\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\n\nfig = make_subplots(specs=[[{\"secondary_y\": True}]])\n\nfig.add_trace(go.Candlestick(x=data.index, open=data[\"Open\"],\n                              high=data[\"High\"], low=data[\"Low\"],\n                             close=data[\"Close\"], name = \"OHLC\"), secondary_y=False)\n\nfig.add_trace(go.Bar(x=data.index, y=data['Volume'], opacity=0.3,\n                     name= \"Volume\"), secondary_y=True)\n\nfig.update_layout(title=\"AAPL Candlestick with Plotly\", width=900, height=400)\nfig.update_yaxes(title=\"Price [USD]\", secondary_y=False, showgrid=True)\nfig.update_yaxes(title=\"Volume\", secondary_y=True, showgrid=False)\n\nfig.show()\n\n\n                                                \n\n\nIn the next one, we hide the range slider for better viewing and separate the volume bar chart:\n\n\nCode\nfig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.05, row_width=[0.2, 0.7])\n\nfig.add_trace(go.Candlestick(x=data.index, open=data[\"Open\"],\n                              high=data[\"High\"], low=data[\"Low\"],\n                             close=data[\"Close\"], name = \"OHLC\"), row=1, col=1)\n\nfig.add_trace(go.Bar(x=data.index, y=data['Volume'], opacity=0.3,\n                     name= \"Volume\"), row=2, col=1)\n\nfig.update_layout(title=\"AAPL Candlestick with Plotly\", width=900, height=500)\n\nfig.update(layout_xaxis_rangeslider_visible=False)\nfig.show()\n\n\n                                                \n\n\nPlotly as well offers multiple themes and customizations, for now will use the dark theme and just change the colors of volume bars for the first plot.\n\n\nCode\nfig = make_subplots(specs=[[{\"secondary_y\": True}]])\n\nfig.add_trace(go.Candlestick(x=data.index, open=data[\"Open\"],\n                              high=data[\"High\"], low=data[\"Low\"],\n                             close=data[\"Close\"], name = \"OHLC\"), secondary_y=False)\n\nfig.add_trace(go.Bar(x=data.index, y=data['Volume'], opacity=0.3,\n                     name= \"Volume\", marker_color=\"gray\"), secondary_y=True)\n\nfig.update_layout(title=\"AAPL Candlestick with Plotly\", width=900, height=500, xaxis={\"rangeslider\":{\"visible\":False}}, template=\"plotly_dark\")\nfig.update_yaxes(title=\"Price [USD]\", secondary_y=False, showgrid=True)\nfig.update_yaxes(title=\"Volume\", secondary_y=True, showgrid=False)\n\nfig.show()\n\n\n                                                \n\n\n\n\nBokeh plot\nQuoting:\n\nBokeh is an interactive visualization library for modern web browsers. It provides elegant, concise construction of versatile graphics, and affords high-performance interactivity over large or streaming datasets. Bokeh can help anyone who would like to quickly and easily make interactive plots, dashboards, and data applications.\n\nBokeh additionally has great documentation and user guide. Now let’s look at a candlestick chart created using Bokeh:\n\n\nCode\nfrom bokeh.layouts import column\nfrom bokeh.plotting import figure, show, output_notebook\nfrom bokeh.models import ColumnDataSource, RangeTool, BoxAnnotation, HoverTool\nfrom bokeh.resources import INLINE\n\n\noutput_notebook(resources=INLINE)\n\ninc= data.Close &gt; data.Open\ndec = data.Open &gt; data.Close\nTOOLS = \"pan,wheel_zoom,box_zoom,reset,save\"\nwidth_set = pd.Timedelta(\"16H\")\n\n\nfig = figure(x_axis_type=\"datetime\", tools=TOOLS, width=900, height=350,\n             title=\"AAPL Candlestick with Bokeh\")\n\nfig.segment(data.index, data.High, data.index, data.Low, color=\"black\")\nfig.vbar(data.index[dec], width_set, data.Open[dec], data.Close[dec], color=\"red\")\nfig.vbar(data.index[inc], width_set, data.Open[inc], data.Close[inc], color=\"green\")\nfig.yaxis.axis_label=\"Price [USD]\"\n\nvol = figure(x_axis_type=\"datetime\", tools=TOOLS, width=900, height=150, x_range=fig.x_range)\nvol.vbar(data.index, width=width_set, top=data.Volume, fill_color=\"grey\", alpha=0.5)\nvol.yaxis.axis_label=\"Volume\"\n\nshow(column(fig,vol))\n\n\n    \n    \n        \n        Loading BokehJS ...\n    \n\n\n\n\n\n\n  \n\n\n\n\n\nGreat! We will now change to dark theme. Check out : bokeh themes.\n\n\nCode\nfrom bokeh.plotting import curdoc\nfrom bokeh.themes import Theme\noutput_notebook(resources=INLINE)\n\ninc= data.Close &gt; data.Open\ndec = data.Open &gt; data.Close\nTOOLS = \"pan,wheel_zoom,box_zoom,reset,save\"\nwidth_set = pd.Timedelta(\"16H\")\n\n\nfig = figure(x_axis_type=\"datetime\", tools=TOOLS, width=900, height=400,\n             title=\"AAPL Candlestick with Bokeh\")\n\nfig.segment(data.index, data.High, data.index, data.Low, color=\"white\")\nfig.vbar(data.index[dec], width_set, data.Open[dec], data.Close[dec], color=\"red\")\nfig.vbar(data.index[inc], width_set, data.Open[inc], data.Close[inc], color=\"green\")\nfig.yaxis.axis_label=\"Price [USD]\"\n\ndoc = curdoc()\ndoc.theme = \"dark_minimal\"\ndoc.add_root(fig)\nshow(fig)\n\n\n    \n    \n        \n        Loading BokehJS ...\n    \n\n\n\n\n\n\n  \n\n\n\n\n\nThat really looks good. If you are going through the code here, you can see how simple it would be to change the colors of bars. One can further add tooltips that will display the OHLC data on hovering over the candles.\nOne might further look at libraries like Altair, ggplot. One great library that I just found while writing this post is Holoviews\nHave fun plotting!"
   },
   {
+    "objectID": "gallery.html",
+    "href": "gallery.html",
+    "title": "Gallery",
+    "section": "",
+    "text": "This page contains random clicks (I mean it) with my smartphone that has 5+ years of experience dealing with me.\n\n\n\n\nThe sky from a beach at evening.\n\n\n\n\n\nCorridor of an old temple build around 1600 CE.\n\n\n\n\n\nSome random tower type structure\n\n\n\n\n\n\nThe sky from a beach at evening.\nCorridor of an old temple build around 1600 CE.\nSome random tower type structure"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "My blog",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nEncoding: ASCII, UCS, UTF\n\n\n\n\n\nThis blogs talks about various encoding methods developed and how the web pages use them.\n\n\n\n\n\nJune 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCandlestick Plotting with Python Libraries\n\n\n\n\n\nCreate interactive Candlestick charts of OHLCV data obtained from yfinance library using python libraries.\n\n\n\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Soumya Mukhopadhyay",
+    "section": "",
+    "text": "Here is an undergrad delving deep in the realms of machine learning and data science. I am interested in teaching and have been a course mentor for an introductory statistics course in the past. I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me.\nI am also dedicated to helping local businesses grow by enhancing their digital presence and conducting data analytics to identify growth opportunities.\n\n\nIndian Institute of Technology, Madras\nBachelor of Science (B.S.) in Data Science and Applications | 2022- 2026 (expected)\nCoursework : Machine Learning Techniques, Business Data Management, Tools in Data Science, Programming Concepts in Java, Modern Application Development, Data Structures and Algorithms"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Soumya Mukhopadhyay",
+    "section": "",
+    "text": "Indian Institute of Technology, Madras\nBachelor of Science (B.S.) in Data Science and Applications | 2022- 2026 (expected)\nCoursework : Machine Learning Techniques, Business Data Management, Tools in Data Science, Programming Concepts in Java, Modern Application Development, Data Structures and Algorithms"
+  },
+  {
+    "objectID": "posts/2406_encoding/index.html",
+    "href": "posts/2406_encoding/index.html",
+    "title": "Encoding: ASCII, UCS, UTF",
+    "section": "",
+    "text": "Machines only understand bits, 1s and 0s. Hence, any languages humans use need to be translated into bits somehow for computers to store and manipulate it as needed. Encodings are developed to specify a standard of such translation, that will allow users to read and write data consistently regardless of difference in software or hardware and is hence an fundamental concept in computing. Every character across different languages and scripts are assigned a code points which is then in turn converted into bits. In this post we look at a few major encodings, like the ASCII, UCS and UTF."
+  },
+  {
+    "objectID": "posts/2406_encoding/index.html#introduction",
+    "href": "posts/2406_encoding/index.html#introduction",
+    "title": "Encoding: ASCII, UCS, UTF",
+    "section": "",
+    "text": "Machines only understand bits, 1s and 0s. Hence, any languages humans use need to be translated into bits somehow for computers to store and manipulate it as needed. Encodings are developed to specify a standard of such translation, that will allow users to read and write data consistently regardless of difference in software or hardware and is hence an fundamental concept in computing. Every character across different languages and scripts are assigned a code points which is then in turn converted into bits. In this post we look at a few major encodings, like the ASCII, UCS and UTF."
+  },
+  {
+    "objectID": "posts/2406_encoding/index.html#ascii",
+    "href": "posts/2406_encoding/index.html#ascii",
+    "title": "Encoding: ASCII, UCS, UTF",
+    "section": "ASCII",
+    "text": "ASCII"
+  },
+  {
     "objectID": "projects.html",
     "href": "projects.html",
-    "title": "Soumya M",
+    "title": "Projects",
     "section": "",
     "text": "Projects will be added here soon.\n\n\n\n\n\n\n\n\n\n\n\n\nThis is a test project\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   }
