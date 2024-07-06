@@ -3,4 +3,30 @@ title: "Useful"
 page-layout: full
 ---
 
-Useful stuff, such as resources on the internet will be added here soon.
+
+
+## Books
+
+Here are some books that have helped me and I refer to often (links attached) some of these might be very useful to you as well: 
+
+
+::: {.small}
+1. [Probability and Statistics with Examples using R](https://www.isibang.ac.in/~athreya/psweur/) by Athreya, Tanner, Sarkar
+2. [Introduction to Statistical Learning in R/Python](https://www.statlearning.com/) by Hastie, Tibshirani, James, Witten, Taylor
+3. [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/) by Hastie, Tibshirani
+4. [Mining of Massive Datasets](http://www.mmds.org/) by Leskovec, Ullman, Rajaraman
+5. [INtrodution to Information Retrieval](https://nlp.stanford.edu/IR-book/) by Manning, Raghavan, Schütze
+6. [Advanced Data Analysis](https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/) by Cosma Rohilla Shalizi
+7. Books by [Charu Aggarwal](https://charuaggarwal.net/), namely:
+    - Data Mining
+    - Neural Networks and Deep Learning
+    - Recommender Systems
+8. [Database System Concepts](https://db-book.com/) by Silberschatz, Korth, Sudarshan
+:::
+
+:::{.callout-note}
+I have not read them cover to cover, just some topics or when in need while doing courses in my university or some self-learning. List also includes books that I've marked _to-do_.
+:::
+
+## My notes
+I will add my notes here soon.
