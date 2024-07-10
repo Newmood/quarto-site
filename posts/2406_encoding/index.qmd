@@ -5,10 +5,97 @@ description: This blogs talks about various encoding methods developed and how t
 categories:
   - Computer Science
 date: "2024-06-30"
-page-layout: full
 ---
 
 ## Introduction
-Machines only understand bits, 1s and 0s. Hence, any languages humans use need to be translated into bits somehow for computers to store and manipulate it as needed. Encodings are developed to specify a standard of such translation, that will allow users to read and write data consistently regardless of difference in software or hardware and is hence an fundamental concept in computing. Every character across different languages and scripts are assigned a _code points_ which is then in turn converted into bits. In this post we look at a few major encodings, like the ASCII, UCS and UTF.
+Machines only understand bits, 1s and 0s. Hence, any languages humans use need to be translated into bits somehow for computers to store and manipulate it as needed. Encodings are developed to specify a standard of such translation, that will allow users to read and write data consistently regardless of difference in software or hardware and is hence an fundamental concept in computing. Every character across different languages and scripts are assigned a _code points_ which is in turn converted into bits. In this post we look at a few major encodings, like the ASCII, UCS and UTF.
+
+First let us take a simple example, consider character set $\{a,b,c,d,e,f,g\}$. Suppose we have to encode these characters (and absolutely nothing else). We assign code points as integers from 0-6. Now, to encode 7 characters we need at leas 3 bits (lowest exponent of 2 greater than or equal to 7). Then an encoding can be made as follows:
+
+| Character | a | b| c| d| e| f| g|
+|-----------|---|--|--|--|--|--|--|
+|Code point | 0 | 1| 2| 3| 4| 5| 6|
+|Binary     | 000 | 001 | 010 | 011 | 100 | 101 | 110 |
+
 
 ## ASCII
+ASCII (American Standard Code for Information Interchange) was created by ANSI (American National Standards Institute) in 1963 to standardize encoding methods, making it easier to exchange files between different computers and devices. ASCII uses 7-bits allowing fo 128 unique values to be encoded (0 to 127). Each value is assigned an integer code point and includes control characters and printable characters.
+
+::: {#tbl-panel layout-ncol=2}
+| Range | Type | Examples |
+|------|------|------|
+| 0-31 | Control chars | NULL, SOH, STX, ETX, etc. |
+| 32-126 | Printable chars   | Space, !, A-Z, a-z, etc. |
+| 127 | Control chars  | DEL  |
+
+: Character set {#tbl-first}
+
+| Character | Code point | Binary |
+|------|------|------|
+| 'A'    | 65    | 1000001 |
+| 'space' | 32    | 0100000 |
+| 'Ctrl-C' | 3    | 0000011 |
+| '$'  | 36 | 0100100 |
+
+: Examples {#tbl-second}
+
+ASCII
+:::
+
+### Extended ASCII
+To include more characters many versions were developed using another bit (8 bits, allowing 0-255), which loosely is known as the _"Extended ASCII"_. However, one must note that "Extended ASCII" does not refer to any particular encoding as there was no unified standard, some versions used the 8th bit for accented european letters such as ISO-8859-1 (Latin-1) or even entirely different scripts such as ISO-8859-5 for Cyrillic. And even though the character limit had increased, development of many versions led to incompatibility issues as text encoded in one version could not be interpreted in a system with another version.
+
+The problems thus posed, demanded a unified encoding that could cover all languages and scripts, including potentially extinct ones and even future languages. This led to development of Unicode encoding which uses upto 32 bits, allowing maximum of over 4 billion characters to encode.
+
+## Unicode
+Unicode is said to be a global encoding standard developed by The Unicode Consortium that provides a very LARGE, single character set of including all languages, scripts, emojis and even ancient ones like egyptian hieroglyphs. It can handle 1,114,112 different characters and as of now has 289,460 designated (version 15.1, [source](https://www.unicode.org/versions/stats/charcountv15_1.html)). The Unicode standard encompasses the Universal Character Set (UCS) and defines two series of encoding methods: _UCS encodings_ and _UTF encodings_, ensuring compatibility, no matter the platform, program, language and leveraging techniques to increase efficiency.
+
+### UCS encoding
+UCS (Universal character set) forms basis of Unicode, which was developed to provide a unified encoding for all characters. In UCS each character is assigned a unique hexadecimal code point. UCS-2 and UCS-4 are two encodings that are used to represent UCS characters:
+_(Note when I say (and its common), "UCS", it refers to the character set and when we "UCS encodings", it refers to UCS-2, UCS-4.)_
+
+1. **UCS-2** : Uses 2 bytes (16 btis) per character and covers 65,536 code points. This covers the BMP - Basic Multilingual Plane which is the first plane of Unicode character set comprising of commonly used characters and most modern scripts.
+2. **UCS-4** : Uses 4 bytes (32-bits) per character, expanding the maximum possible codepoints to more than 4 billion (which as of now seems more than enough).
+
+
+| Character | Code point (Hex) | UCS-2 Binary | UCS-4 Binary |
+| ----------|------------------|--------------|--------------|
+| A | 0041 | 00000000 01000001 | 00000000 00000000 00000000 01000001|
+| &#x20AC; (Euro sign) | 20AC | 00100000 10101100 | 00000000 00000000 00100000 10101100 | 
+| &#x10348; (Gothic hwair)| 10348 | N/A | 00000000 00010000 00110100 10001000 |
+
+: UCS-2 and UCS-4 examples {#tbl-ucs}
+
+
+To convert a character from UCS-2 to UCS-4, one needs to aprepend zeroes to UCS-2 binary. Now if one uses only a fixed range of characters, encoding in UCS-2 or UCS-4 as they are of fixed length binary will be consuming a lot of unnecessary space. Hence the development of UTF (as far as I understand-)...
+
+### UTF 
+UTF (Unicode Transformation Format) defines encoding formats : UTF-8, UTF-16 and UTF-32 that map code points from the UCS set to bits. UTF has variable length encoding which is more efficient than earlier described UCS encodings. 
+
+1. **UTF-8** : It covers entire Unicode character set and is of _variable length encoding_ using 1 to 4 bytes per character and is backwards compatible with ASCII that is, for first 128 characters, UTF-8 uses the same mapping as ASCII. It is highly space efficient andis most used (over 98% in the web) encoding.
+
+2. **UTF-16** : Uses 2 bytes for encoding characters in BMP and 4 bytes for characters outside BMP using "_surrogate pairs_" (pairs of 16-bit code units). 
+
+3. **UTF-32** : Fixed use of 4 bytes for all characters (simplifying indexing), functionally equivalent to UCS-4. Less commonly used due its more space requirement but still used where indexing matters more.
+
+| Character | Code point (Hex) | UTF-8 Binary | UTF-16 Binary |
+| ----------|------------------|--------------|--------------|
+| A | 0041 | 01000001 | 00000000 01000001|
+| &#x20AC; (Euro sign) | 20AC | 11100010 10000010 10101100 | 00100000 10101100 | 
+| &#x10348; (Gothic hwair)| 10348 | 11110000 10010000 10001101 10001000 | 11011000 00000000 11011100 10001000 |
+
+: UTF-8 and UTF-16 examples {#tbl-utf}
+
+
+
+## meta charset= "" ?
+If you've been into web development even a little you have seen this tag in your html document, most likely as your first `head` tag. We use the tag `<meta charset="utf-8">` to define the encoding. But how can your ead HTML file without knowing before hand what encoding it uses?
+
+HTML5 standard requires you to conform with certain restrictions such as :
+
+> The element containing the character encoding declaration must be serialized completely within the first 1024 bytes of the document. ([source](https://html.spec.whatwg.org/multipage/semantics.html#charset))
+
+This limit earlier used to be 512 bytes. When this meta tag is parsed, the browser is going to stop and start over with the specified encoding. Until this tag, a default uncoding is used which is mostly ISO-8859-1. Also it is recommended to always use utf-8 because of all the reasons above.
+
+## Summary
+ASCII, the first major standard encoding uses 7 bits that well worked with the English texts. However, to inlcude other languages and scripts, 8-bit encodings were developed with multiple versions that are commonly referred to as Extended ASCII. These versions suffered from incompatibility during data exchanges and from system differences. Then comes Unicode, a unified global standard set to include all languages, ancient, current and potential future ones addressing the issues faced earlier and encoding formats with more bits were developed : UCS-2 and UCS-4, which soon became obsolete as UTF formats took over, because of its high efficiency, thanks to variable length encoding, ability to span entire Unicode set and compatibility with ASCII. UTF-8 is the most used encoding and you should, as well, use it while defining `<meta charset='utf-8'>` as the first line of your `head` tag in HTML document.
