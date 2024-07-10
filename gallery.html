@@ -172,19 +172,19 @@ ul.task-list li input[type="checkbox"] {
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));grid-gap: 1em;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/pic_01.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="gallery" title="The sky from a beach at evening."><img src="./img/pic_01.png" class="img-fluid figure-img" alt="The sky from a beach at evening."></a></p>
-<figcaption>The sky from a beach at evening.</figcaption>
+<p><a href="./img/pic_01.png" class="lightbox" data-gallery="gallery" data-glightbox="description: .lightbox-desc-1" title="The sky from a beach in evening."><img src="./img/pic_01.png" class="img-fluid figure-img" alt="The sky from a beach in evening"></a></p>
+<figcaption>The sky from a beach in evening.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/pic_02.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="gallery" title="Corridor of an old temple build around 1600 CE."><img src="./img/pic_02.png" class="img-fluid figure-img" alt="Corridor of an old temple build around 1600 CE."></a></p>
-<figcaption>Corridor of an old temple build around 1600 CE.</figcaption>
+<p><a href="./img/pic_02.png" class="lightbox" data-gallery="gallery" data-glightbox="description: .lightbox-desc-2" title="Corridor of an old temple built around 1600 CE."><img src="./img/pic_02.png" class="img-fluid figure-img" alt="Corridor of an old temple"></a></p>
+<figcaption>Corridor of an old temple built around 1600 CE.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/prfp.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="gallery" title="Some random tower type structure"><img src="./img/prfp.jpg" class="img-fluid figure-img" alt="Some random tower type structure"></a></p>
+<p><a href="./img/prfp.jpg" class="lightbox" data-gallery="gallery" data-glightbox="description: .lightbox-desc-3" title="Some random tower type structure"><img src="./img/prfp.jpg" class="img-fluid figure-img" alt="A random tower"></a></p>
 <figcaption>Some random tower type structure</figcaption>
 </figure>
 </div>
@@ -192,8 +192,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">The sky from a beach at evening.</span>
-<span class="glightbox-desc lightbox-desc-2">Corridor of an old temple build around 1600 CE.</span>
+<span class="glightbox-desc lightbox-desc-1">The sky from a beach in evening.</span>
+<span class="glightbox-desc lightbox-desc-2">Corridor of an old temple built around 1600 CE.</span>
 <span class="glightbox-desc lightbox-desc-3">Some random tower type structure</span>
 </div>
 
@@ -743,7 +743,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

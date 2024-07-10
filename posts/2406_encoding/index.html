@@ -72,10 +72,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -143,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
+    <div class="quarto-title column-body">
       <h1 class="title">Encoding: ASCII, UCS, UTF</h1>
                   <div>
         <div class="description">
@@ -157,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
       
       <div>
@@ -171,12 +200,12 @@ ul.task-list li input[type="checkbox"] {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
@@ -184,10 +213,268 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Machines only understand bits, 1s and 0s. Hence, any languages humans use need to be translated into bits somehow for computers to store and manipulate it as needed. Encodings are developed to specify a standard of such translation, that will allow users to read and write data consistently regardless of difference in software or hardware and is hence an fundamental concept in computing. Every character across different languages and scripts are assigned a <em>code points</em> which is then in turn converted into bits. In this post we look at a few major encodings, like the ASCII, UCS and UTF.</p>
+<p>Machines only understand bits, 1s and 0s. Hence, any languages humans use need to be translated into bits somehow for computers to store and manipulate it as needed. Encodings are developed to specify a standard of such translation, that will allow users to read and write data consistently regardless of difference in software or hardware and is hence an fundamental concept in computing. Every character across different languages and scripts are assigned a <em>code points</em> which is in turn converted into bits. In this post we look at a few major encodings, like the ASCII, UCS and UTF.</p>
+<p>First let us take a simple example, consider character set <span class="math inline">\(\{a,b,c,d,e,f,g\}\)</span>. Suppose we have to encode these characters (and absolutely nothing else). We assign code points as integers from 0-6. Now, to encode 7 characters we need at leas 3 bits (lowest exponent of 2 greater than or equal to 7). Then an encoding can be made as follows:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Character</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+<th>e</th>
+<th>f</th>
+<th>g</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Code point</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Binary</td>
+<td>000</td>
+<td>001</td>
+<td>010</td>
+<td>011</td>
+<td>100</td>
+<td>101</td>
+<td>110</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="ascii" class="level2">
 <h2 class="anchored" data-anchor-id="ascii">ASCII</h2>
+<p>ASCII (American Standard Code for Information Interchange) was created by ANSI (American National Standards Institute) in 1963 to standardize encoding methods, making it easier to exchange files between different computers and devices. ASCII uses 7-bits allowing fo 128 unique values to be encoded (0 to 127). Each value is assigned an integer code point and includes control characters and printable characters.</p>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: ASCII
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-first" class="quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Character set
+</figcaption>
+<div aria-describedby="tbl-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Range</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0-31</td>
+<td style="text-align: left;">Control chars</td>
+<td style="text-align: left;">NULL, SOH, STX, ETX, etc.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32-126</td>
+<td style="text-align: left;">Printable chars</td>
+<td style="text-align: left;">Space, !, A-Z, a-z, etc.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">127</td>
+<td style="text-align: left;">Control chars</td>
+<td style="text-align: left;">DEL</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-second" class="quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Examples
+</figcaption>
+<div aria-describedby="tbl-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Character</th>
+<th style="text-align: left;">Code point</th>
+<th style="text-align: left;">Binary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">‘A’</td>
+<td style="text-align: left;">65</td>
+<td style="text-align: left;">1000001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">‘space’</td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">0100000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">‘Ctrl-C’</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0000011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">‘$’</td>
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">0100100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<section id="extended-ascii" class="level3">
+<h3 class="anchored" data-anchor-id="extended-ascii">Extended ASCII</h3>
+<p>To include more characters many versions were developed using another bit (8 bits, allowing 0-255), which loosely is known as the <em>“Extended ASCII”</em>. However, one must note that “Extended ASCII” does not refer to any particular encoding as there was no unified standard, some versions used the 8th bit for accented european letters such as ISO-8859-1 (Latin-1) or even entirely different scripts such as ISO-8859-5 for Cyrillic. And even though the character limit had increased, development of many versions led to incompatibility issues as text encoded in one version could not be interpreted in a system with another version.</p>
+<p>The problems thus posed, demanded a unified encoding that could cover all languages and scripts, including potentially extinct ones and even future languages. This led to development of Unicode encoding which uses upto 32 bits, allowing maximum of over 4 billion characters to encode.</p>
+</section>
+</section>
+<section id="unicode" class="level2">
+<h2 class="anchored" data-anchor-id="unicode">Unicode</h2>
+<p>Unicode is said to be a global encoding standard developed by The Unicode Consortium that provides a very LARGE, single character set of including all languages, scripts, emojis and even ancient ones like egyptian hieroglyphs. It can handle 1,114,112 different characters and as of now has 289,460 designated (version 15.1, <a href="https://www.unicode.org/versions/stats/charcountv15_1.html">source</a>). The Unicode standard encompasses the Universal Character Set (UCS) and defines two series of encoding methods: <em>UCS encodings</em> and <em>UTF encodings</em>, ensuring compatibility, no matter the platform, program, language and leveraging techniques to increase efficiency.</p>
+<section id="ucs-encoding" class="level3">
+<h3 class="anchored" data-anchor-id="ucs-encoding">UCS encoding</h3>
+<p>UCS (Universal character set) forms basis of Unicode, which was developed to provide a unified encoding for all characters. In UCS each character is assigned a unique hexadecimal code point. UCS-2 and UCS-4 are two encodings that are used to represent UCS characters: <em>(Note when I say (and its common), “UCS”, it refers to the character set and when we “UCS encodings”, it refers to UCS-2, UCS-4.)</em></p>
+<ol type="1">
+<li><strong>UCS-2</strong> : Uses 2 bytes (16 btis) per character and covers 65,536 code points. This covers the BMP - Basic Multilingual Plane which is the first plane of Unicode character set comprising of commonly used characters and most modern scripts.</li>
+<li><strong>UCS-4</strong> : Uses 4 bytes (32-bits) per character, expanding the maximum possible codepoints to more than 4 billion (which as of now seems more than enough).</li>
+</ol>
+<div id="tbl-ucs" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ucs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: UCS-2 and UCS-4 examples
+</figcaption>
+<div aria-describedby="tbl-ucs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 32%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Character</th>
+<th>Code point (Hex)</th>
+<th>UCS-2 Binary</th>
+<th>UCS-4 Binary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>0041</td>
+<td>00000000 01000001</td>
+<td>00000000 00000000 00000000 01000001</td>
+</tr>
+<tr class="even">
+<td>€ (Euro sign)</td>
+<td>20AC</td>
+<td>00100000 10101100</td>
+<td>00000000 00000000 00100000 10101100</td>
+</tr>
+<tr class="odd">
+<td>𐍈 (Gothic hwair)</td>
+<td>10348</td>
+<td>N/A</td>
+<td>00000000 00010000 00110100 10001000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>To convert a character from UCS-2 to UCS-4, one needs to aprepend zeroes to UCS-2 binary. Now if one uses only a fixed range of characters, encoding in UCS-2 or UCS-4 as they are of fixed length binary will be consuming a lot of unnecessary space. Hence the development of UTF (as far as I understand-)…</p>
+</section>
+<section id="utf" class="level3">
+<h3 class="anchored" data-anchor-id="utf">UTF</h3>
+<p>UTF (Unicode Transformation Format) defines encoding formats : UTF-8, UTF-16 and UTF-32 that map code points from the UCS set to bits. UTF has variable length encoding which is more efficient than earlier described UCS encodings.</p>
+<ol type="1">
+<li><p><strong>UTF-8</strong> : It covers entire Unicode character set and is of <em>variable length encoding</em> using 1 to 4 bytes per character and is backwards compatible with ASCII that is, for first 128 characters, UTF-8 uses the same mapping as ASCII. It is highly space efficient andis most used (over 98% in the web) encoding.</p></li>
+<li><p><strong>UTF-16</strong> : Uses 2 bytes for encoding characters in BMP and 4 bytes for characters outside BMP using “<em>surrogate pairs</em>” (pairs of 16-bit code units).</p></li>
+<li><p><strong>UTF-32</strong> : Fixed use of 4 bytes for all characters (simplifying indexing), functionally equivalent to UCS-4. Less commonly used due its more space requirement but still used where indexing matters more.</p></li>
+</ol>
+<div id="tbl-utf" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-utf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: UTF-8 and UTF-16 examples
+</figcaption>
+<div aria-describedby="tbl-utf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 32%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Character</th>
+<th>Code point (Hex)</th>
+<th>UTF-8 Binary</th>
+<th>UTF-16 Binary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>0041</td>
+<td>01000001</td>
+<td>00000000 01000001</td>
+</tr>
+<tr class="even">
+<td>€ (Euro sign)</td>
+<td>20AC</td>
+<td>11100010 10000010 10101100</td>
+<td>00100000 10101100</td>
+</tr>
+<tr class="odd">
+<td>𐍈 (Gothic hwair)</td>
+<td>10348</td>
+<td>11110000 10010000 10001101 10001000</td>
+<td>11011000 00000000 11011100 10001000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="meta-charset" class="level2">
+<h2 class="anchored" data-anchor-id="meta-charset">meta charset= “” ?</h2>
+<p>If you’ve been into web development even a little you have seen this tag in your html document, most likely as your first <code>head</code> tag. We use the tag <code>&lt;meta charset="utf-8"&gt;</code> to define the encoding. But how can your ead HTML file without knowing before hand what encoding it uses?</p>
+<p>HTML5 standard requires you to conform with certain restrictions such as :</p>
+<blockquote class="blockquote">
+<p>The element containing the character encoding declaration must be serialized completely within the first 1024 bytes of the document. (<a href="https://html.spec.whatwg.org/multipage/semantics.html#charset">source</a>)</p>
+</blockquote>
+<p>This limit earlier used to be 512 bytes. When this meta tag is parsed, the browser is going to stop and start over with the specified encoding. Until this tag, a default uncoding is used which is mostly ISO-8859-1. Also it is recommended to always use utf-8 because of all the reasons above.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>ASCII, the first major standard encoding uses 7 bits that well worked with the English texts. However, to inlcude other languages and scripts, 8-bit encodings were developed with multiple versions that are commonly referred to as Extended ASCII. These versions suffered from incompatibility during data exchanges and from system differences. Then comes Unicode, a unified global standard set to include all languages, ancient, current and potential future ones addressing the issues faced earlier and encoding formats with more bits were developed : UCS-2 and UCS-4, which soon became obsolete as UTF formats took over, because of its high efficiency, thanks to variable length encoding, ability to span entire Unicode set and compatibility with ASCII. UTF-8 is the most used encoding and you should, as well, use it while defining <code>&lt;meta charset='utf-8'&gt;</code> as the first line of your <code>head</code> tag in HTML document.</p>
 
 
 </section>
