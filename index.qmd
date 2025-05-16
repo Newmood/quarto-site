@@ -4,9 +4,8 @@ sidebar: false
 page-layout: full
 about: 
     template: trestles
-    image: /img/prfp.jpg
+    image: /img/newpfp.png
     image-shape: round
-
     links:
         - icon: github
           text: Github

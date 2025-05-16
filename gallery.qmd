@@ -9,7 +9,7 @@ lightbox:
     loop: false
     desc-position: bottom
 ---
-[This page contains random clicks (_I mean it_) with my smartphone that has 5+ years of experience dealing with me.]{.small} 
+This page contains random clicks (_I mean it_) with my smartphone that has 5+ years of experience dealing with me. (Actually just wanted to test lightbox extension of quarto.) 
 
 :::{style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));grid-gap: 1em;"}
 ![The sky from a beach in evening.](./img/pic_01.png){group="gallery" fig-alt="The sky from a beach in evening"}

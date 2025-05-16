@@ -5,10 +5,12 @@ listing:
   contents: posts/*/index.qmd
   date-format: long
   sort: "date desc"
-  type: default
+  type: table
   fields: [date, title, description, image]
   sort-ui: true
   filter-ui: true
   categories: true
 ---
-
+:::{.callout-note}
+What I write about is nothing new but written thousands of times on the internet by others. But writing helps me learn, like rubber-duck debugging. I write much more locally, but sometimes I feel like sharing here. And sometimes I write just to test out frameworks - for example : interactive plotting libraries with Quarto. 
+:::

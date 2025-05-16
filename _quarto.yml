@@ -20,7 +20,6 @@ website:
       - text: Useful
         href: useful.qmd
       - text: CV
-        href: index.qmd
       - text: Gallery
         href: gallery.qmd
     
@@ -29,8 +28,6 @@ website:
         href: https://www.linkedin.com/in/soumya-mukhopadhyay-947721165/
       - icon: github
         href: https://github.com/Newmood
-      - text: K
-        href: https://www.kaggle.com/soumyam23
   
   page-footer: 
     border: true

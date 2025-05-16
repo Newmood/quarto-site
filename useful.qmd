@@ -1,28 +1,31 @@
 ---
 title: "Useful"
-page-layout: full
 ---
 
 
 
 ## Books
 
-Here are some books that have helped me and I refer to often (links attached) some of these might be very useful to you as well: 
+Here are some books that have helped me and I refer to often (links attached) some of these might be very useful to you as well (the order in which books are named is irrelevant): 
 
 
-::: {.small}
 1. [Probability and Statistics with Examples using R](https://www.isibang.ac.in/~athreya/psweur/) by Athreya, Tanner, Sarkar
 2. [Introduction to Statistical Learning in R/Python](https://www.statlearning.com/) by Hastie, Tibshirani, James, Witten, Taylor
 3. [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/) by Hastie, Tibshirani
-4. [Mining of Massive Datasets](http://www.mmds.org/) by Leskovec, Ullman, Rajaraman
-5. [INtrodution to Information Retrieval](https://nlp.stanford.edu/IR-book/) by Manning, Raghavan, Schütze
-6. [Advanced Data Analysis](https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/) by Cosma Rohilla Shalizi
-7. Books by [Charu Aggarwal](https://charuaggarwal.net/), namely:
+4. [Advanced Data Analysis](https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/) by Cosma Rohilla Shalizi
+5. Books by [Charu Aggarwal](https://charuaggarwal.net/), namely:
     - Data Mining
     - Neural Networks and Deep Learning
     - Recommender Systems
-8. [Database System Concepts](https://db-book.com/) by Silberschatz, Korth, Sudarshan
-:::
+6. [Deep Learning with Python](https://fchollet.com/) by Francois Chollet, Did you know Chollet is creator of Keras and founder of ARC Prize and Ndea? Google it up.
+7. [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book.html) by Richard S. Sutton and Andrew G. Barto, they won Turing Award :\).
+8. [Introdution to Information Retrieval](https://nlp.stanford.edu/IR-book/) by Manning, Raghavan, Schütze
+9. [Mining of Massive Datasets](http://www.mmds.org/) by Leskovec, Ullman, Rajaraman
+10. _Data Mining Concepts and Techniques_ by Jiawei Han, Micheline Kamber and Jian Pei : I had 3rd edition of this, and I liked the section on Clustering and Outlier detection.
+11. [Understanding Deep Learning](http://udlbook.com) by Simon J.D. Prince
+12. [Patterns, Predictions and Actions](https://mlstory.org/) by Moritz Hardt and Benjamin Recht
+13. [Database System Concepts](https://db-book.com/) by Silberschatz, Korth, Sudarshan
+
 
 :::{.callout-note}
 I have not read them cover to cover, just some topics or when in need while doing courses in my university or some self-learning. List also includes books that I've marked _to-do_.
