@@ -1,7 +1,7 @@
 ---
 title: "Stateless Protocol, Stateful Needs"
 title-block-banner: true
-description: How session management is done in websites so users receive the desired experience. This post does not talk about implementations or provide code snippets, studies client side storage in detail with example case.
+description: This post talks about various methods for state management and storing session data for an application. Does not include implementations or provide code snippets or talk about any particular architecture.
 categories:
   - Computer Science
 date: "2025-05-14"
@@ -12,15 +12,18 @@ format:
     toc-depth : 4
     toc-expand: 3
     number-sections: true
+    smooth-scroll: true
 ---
-
 ## Introduction
-Consider a user engages with an e-commerce application. The user logins with their credentials, then add something to the cart, scrolls around a bit - sees a section that shows previously browsed items and finally concludes by logging out (or maybe just closing the browser). Now when they login again later, they see the item is still there in the cart.
+::: {.callout-caution }
+[Before starting, note that I intend to expand this article to include more topics with time, this article whill go through many changes.]{.small}
+:::
+Consider a user engages with an e-commerce application. The user logs in with their credentials, then add something to the cart, scrolls around a bit - sees a section that shows previously browsed items and finally concludes by logging out (or maybe just closing the browser). Now when they login again later, they see the item is still there in the cart.
 
 HTTP by itself is a stateless protocol, meaning each request is a fresh new connection between server and client. Then how do the sites know whether a user is logged in and has objects in the cart? In other words, how does server know the state of the user during a session? Thankfully there are workarounds to provide for the stateful needs using the stateless protocol.
 
 ## Sessions
-> A session is a long running interaction between a client and a server. It may consist of a single request, but more commonly it consists of a series of requests that the user regards as a consistent logical sequence.
+> [A session is a long running interaction between a client and a server. It may consist of a single request, but more commonly it consists of a series of requests that the user regards as a consistent logical sequence.]{.mark} [@fowlerpeaa]
 
 A site has to keep record of these sessions and we will see how these sessions are stored and used to deliver the content to the user. Somehow, we have to make the app aware of whatever the user is doing during the session or has done previously. Now, this means with each HTTP request we have to send and receive a lot of data but with proper session management this reduces to sending a small session ID/token that helps retrieve the associated data. A session may initialise, modify a lot data objects for a user and we can tie this to a session ID for session management.
 
@@ -28,8 +31,9 @@ There are two ways to store the session state:
 
 1. Client session state
 2. Server session state
+3. Database sessions state
 
-It is to note that database session state is mostly included in server session state however, @fowlerpeaa recognised it as a separate category. Regardless of the method used, typically a session ID is transferred back and forth with HTTP requests in the form of **session cookie**. This cookie is stored in the client side. 
+Regardless of the method used, typically a session ID is transferred back and forth with HTTP requests in the form of **session cookie**. This cookie is stored in the client side. 
 
 ### Client Session State
 As evident by name, this stores the data on the client. In some cases, it is possible to keep all session data on client and with each request this entire set of data is sent back and forth between server and the client. This can be done using : URL parameters, hidden fields/forms and cookies.
@@ -48,7 +52,9 @@ Cookies are name-value pairs that are saved and managed by browsers. These are s
 - Expiration : HTTP cookies can expire, given how they're configured. If they are session cookies, they typically expire when the session closed (browser/tab is closed). On the other hand, if they are persistent cookies, the expiration time can be set using `Expires` and `Max-Age` tags.
 - Security : Using `HttpOnly` attribute, the cookie can't be accessed by JavaScript which reduces risk of cross-site-scripting or XSS. The `Secure` tag helps mitigate man-in-the-middle attacks by ensuring cookies are only sent over HTTPS (`Secure` does not work with HTTP). There is a `SameSite` attribute controls whether cookies are sent with cross-site requests. By blocking cookies in cross-site scenarios it helps prevent CSRF attacks.
 
-To understand how cookies work across sub-domains and how it implements `SameSite`, it is important to understand [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) first.
+Ideally a site should be perfectly operational even if cookie fails (could be because of size or security reasons), hence it is a bad design to be completely reliant on cookies. It should be used to improve the user experience. Also, since cookies are sent with every request, a page will large number of static files can contribute to cookie overhead, hence many applications serve the static files from a different server that does not use cookie. - the static components don't often require use of cookies either.
+
+To understand how cookies work across sub-domains and how to work with `SameSite`, it is important to understand [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) first. A lot of web storage options are dependent on same origin policy.
 
 #### Web Storage
 There's mostly two types of session storage to work with - **session storage**, one that spans for a session and then expires and **persistent storage** which stays for much longer duration before expiring (as we have seen for cookies and more to come). Browsers offer a Web Storage API which allows for preserving non-essential state across requests and even session. Specifically this API offers two storage objects :   
@@ -56,26 +62,57 @@ There's mostly two types of session storage to work with - **session storage**, 
 - `localStorage` : This persists between browser session
 - `sessionStorage` : This stores data that will be lost after browser session is over.
 
+Most browsers provide these Web Storage APIs which have storage capacity of much larger than that cookies (5-10MBs per origin). However, unlike cookies the stored here isn't communicated back with HTTP requests. Hence, it is not used as a replacement of cookies, instead it is used as a local cache to store static files downloaded sent by server to reduce server load for subsequent requests. Additionally, these are more prone to XSS attacks.
+
 #### IndexedDB
+This is not your usual relational database to store persistent non-essential session data, instead this is an object-oriented database that provides asynchronous access - it lets you request to store and retrieve data objects. It can store large amounts of data structures including files/blobs and index them for high-performance searching. IndexedDb also follows the same-origin policy.
 
+### Server Session State
+Keep the data in server memory keyed by a session ID sent by the client. Although this will be very fast, secure against client tampering and easy to implement; could strain memory. To relieve this, we can use local file system which makes the entire process slightly slower. Additional things to take care of : garbage cleaning, expiring sessions with background jobs, rotating session IDs. However one problem still remains - if the server crashes, the session data is lost. Using multiple servers requires a shareable storage which brings us to our final method - database session state. 
 
+### Database Session State
+Session data is stored in a shared, persistent, typically relational database. Server upon receiving request from client, uses the session ID to retrieve data from the database storage and then serves the request. Although this comes at a cost of increased latency, it works against server failures and supports clustering.   
+To make the distinction between session data and longer persistent data, one may use separate tables - and which is better since, it might be better to distinguish between in-process order  and completed order during a transaction session -- a session data must be committed to become persistent.
 
+## Caching
+We can store data temporarily on the memory to improve performance of the application - known as caching. This can be done on both client and server side. And even on server side, we can use a distributed caching system, that can be accessed by more than one server using systems like Redis or Memcached.
 
-### To write
-- webstorageAPI (sessionstorage and persistentstorage), IndexedDB
-- Cookie overhead is too much -store static files in separate domain.
-- session data must be committed to become record data
-- What if people tamper/delete or turn off cookies? Ideally site should be perfectly operational still; hence it is bad design to depend solely depend on cookies during implementation of features.
-- Using cookies and caching some information.
-- Bonus section : "Remember me?" - checkbox on login - persistent cookie usage. Chapter 17 Security in FWD
+Caching is important in both server and client side. For example, if you have to render a page thousand times per second to serve requests, you can use the cache to serve subsequent requests from the memory.
+There are two categories here:
+
+1. Page Output Caching  : This refers to caching the output of a page, rendered page or just its parts are saved for better performance. Judicious use is advised, caching every page might not be as useful, instead cache pages that have high visits.
+2. Application Data Caching  : For data intensive applications, and for those which affect the latency retrieving the data again and again from database, it can be cached into memory, pages requiring same data can use the cached version. Remember, to check for any concurrency issues here.
+
+The application has to make sure the cache gets invalidated and refreshed when underlying data changes.
+
+## Sessions and JWTs
+We have seen that typically a good method would be user information being stored on server memory or database and exchange of session ID using cookies or URL helps maintain the session. Another way, very common in modern system is the usage of tokens, which is towards a stateless approach. _"Stateless"_ here means that session data is not stored on server side and the tokens themselves contain all session data, typically in JSON Web Token.
+
+After a user authenticates successfully a token is issued, and the client may store the token in _sessionStorage_ or _cookies_ and send it with future requests for verification. The verification is often handled by a third party. This stateless approach is scalable, as it relieves the problems with storing session IDs in cookies such vulnerabilities and scaling issues with distributed servers, as well as performance issues. A JWT has following three things:
+
+1. Header : This contains metadata about type of token and the cryptographic algorithm used
+2. Paylod : This contains claims which are data assert about a subject. (e.g. name of a user)
+3. Signature : This is used to verify a token to ensure it is valid and wasn't tampered.
+
+The contents of JWT are serialized as Base64 URL-safe encoding. So, while JWT can be decoded and anyone can see the contents, they modify it without invalidating the signature.JWTs are not encrypted be default but can be encrypted in case of sensitive information using JWE (JSON Web Encryption). In gist, JWTs are signed and sent over and over with HTTP and asynchronous requests, data is encrypted while its being transmitted (so no one can read even after they intercept traffic). The server only verifies the signature and doesn't store the token, they trust the token's claims once its verified, JWT carries all the session data itself.
+
+## Remember Me?
+Many sites offer a "remember me" checkbox, which persists the login for a long duration even throughout multiple sessions (hours or weeks later, you're still logged in!). Usually one can store a long token value as a persistent cookie and on the server side, a hashed and salted version of this tokein is saved referencing the user account. This also contains an expiration date. In future vists the server checks the token and if it is presents allows log in and creates a new token which replaces the old one for the same use. While most sites, don't just do this, intead they couple this technique with other methods like JWTs, SSO, it is still widely used for minimalistic logins.
+
+## Best practices
+1. Secure Cookies : As state earlier, uise flags like `HttpOnly`, `Secure` and `SameSite` to prevent XSS, force HTTPS and block CSRF attacks.
+2. Avoid Server Affinity : Avoid tying data to one server, instead look for distributed architecture to avoid losing data on system failures.
+3. Session Cleanup : Expired sessions should be cleaned periodically to rpevent memory bloat.
+4. Rotate IDs/Tokens : Issue a fresh session ID/token on performing sensitive operations.
+5. Avoid overloading sessions and cache memory with unnecessary data, use judiciously.
 
 ## References
 ---
 nocite: |
   @connollyfwd
+  @fowlerpeaa
+  @mdn_docs
 ---
 
 ::: {#refs}
 :::
-
-- https://stytch.com/blog/localstorage-vs-sessionstorage-vs-cookies/
