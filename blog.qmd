@@ -1,12 +1,12 @@
 ---
-title: "My blog"
+pagetitle: "My blog"
 page-layout: full
 listing:
   contents: posts/*/index.qmd
   date-format: long
   sort: "date desc"
   type: table
-  fields: [date, title, description, image]
+  fields: [date, title, description]
   sort-ui: true
   filter-ui: true
   categories: true

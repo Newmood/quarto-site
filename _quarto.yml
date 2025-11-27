@@ -7,9 +7,11 @@ website:
   title: "Soumya M."
   favicon: /img/Sm_logo.png
   search: true
+  cookie-consent:
+    type: express
+    palette : light
   navbar:
     # logo: /img/Sm_logo.png
-
     left:
       - href: index.qmd
         text: Home
@@ -20,8 +22,12 @@ website:
       - text: Useful
         href: useful.qmd
       - text: CV
-      - text: Gallery
-        href: gallery.qmd
+      - text: More
+        menu:
+          - text: Bookshelf
+            href: bookshelf.qmd
+          - text: Gallery
+            href: gallery.qmd
     
     right: 
       - icon: linkedin

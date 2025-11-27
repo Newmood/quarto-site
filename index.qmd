@@ -20,12 +20,15 @@ about:
           href: mailto:22f100419@ds.study.iitm.ac.in
 ---
 # Soumya Mukhopadhyay
-Here is an undergrad delving deep in the realms of machine learning and data science. I am interested in teaching and have been a course mentor for an introductory statistics course in the past. I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me. 
+Here is an undergrad delving deep in the realms of machine learning and data science. I am interested modelling techniques, diagnostics and also in teaching. I like to learn new things, seeking knowledge in domains besides tech as well whenever time and circumstances allow me. 
 
 I am also dedicated to helping local businesses grow by enhancing their digital presence and conducting data analytics to identify growth opportunities.
 
+## Experience
+**Data Science Intern** at **[RHST](https://www.rhst.in/)** | _Sep 2025 - Present_
+
 ## Education
 **Indian Institute of Technology, Madras**  
-_Bachelor of Science (B.S.) in Data Science and Applications_ | 2022- 2026 (expected)  
+_Bachelor of Science (B.S.) in Data Science and Applications_ | _2022 - 2026 (expected)_  
 
 [Coursework : Machine Learning Techniques, Business Data Management, Tools in Data Science, Programming Concepts in Java, Modern Application Development, Data Structures and Algorithms]{.small}
